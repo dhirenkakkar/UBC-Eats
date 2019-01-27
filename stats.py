@@ -76,6 +76,7 @@ def pieChart(startDate, endDate):
     rows = getRows(startDate, endDate)
     selectedRange = config.data[4][rows[0]:rows[1]+1]
     total = np.sum(selectedRange)
+    print(total)
     ratios = {}
     regex = re.compile(r'(\D)+')
     for x in range(rows[0], rows[1]):
@@ -85,21 +86,22 @@ def pieChart(startDate, endDate):
             name = 'Domino\'s Pizza'
         elif (name == 'TrekTims'):
             name = 'TimHortons'
-
-        if ratios.get(name, -1) == -1:
-            ratios[name] = 0
-        else:
-            ratios[name] += config.data[4][x]
-
+        ratios[name] = 0
+    
     print(ratios)
-    # for key in ratios:
-    #     ratios[key] = (ratios[key] / total)
-    # print(ratios)
+    for x in range(rows[0], rows[1]):
+        nameGrouped = regex.search(config.data[1][x])
+        name = nameGrouped.group()
+        if (name == 'Domino\'s Pizza (' or name == 'Domino\'s Pizza (Dunbar)'):
+            name = 'Domino\'s Pizza'
+        elif (name == 'TrekTims'):
+            name = 'TimHortons'
+        ratios[name] += config.data[4][x]
 
-    sum = 0
-    for key in ratios:
-        sum += ratios[key]
+    return ratios
 
-    print(sum)
+    
+
+pieChart("01-01-2001", "01-01-2100")
 
 
