@@ -101,3 +101,5 @@ def pieChart(startDate, endDate):
         sum += ratios[key]
 
     print(sum)
+
+
