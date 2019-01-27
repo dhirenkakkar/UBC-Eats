@@ -15,4 +15,4 @@ def heatMap():
     HeatMap(newData).add_to(m)
     f = open("./Templates/heatmap.html", "w+")
     f.write(m._repr_html_())
-    f.close()
+    f.close
