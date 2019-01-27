@@ -1,0 +1,3 @@
+data = []
+locations = {}
+loaded = False

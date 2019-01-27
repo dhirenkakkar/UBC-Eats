@@ -1,4 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,request
+import stats
+import parser
+
+
+
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -13,9 +19,11 @@ def hello():
 def about():
     return "<h1> About Page </h1>"
 
-@app.route('/background_process_test')
-def background_process_test():
-    return
+@app.route('/', methods=['GET','POST'])
+def send():
+     if request.method == 'POST':
+         stats.loadData()
+
 
 
 if __name__ == "__main__":

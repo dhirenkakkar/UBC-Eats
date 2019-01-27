@@ -9,8 +9,26 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
 </head>
 <body>
+  <script>
+
+   $('#myButton').click(function() {
+     console.log("hello")
+       $.ajax({
+             type:'POST',
+             url:"stats.py"
+             dataType:"text",
+             success: function(response){
+                console.log(response);
+                alert(response);
+             }
+     });
+   });
+ </script>
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -19,11 +37,13 @@
     </nav>
     <div class="jumbotron text-center">
       <h1>Visualise your spending</h1>
-    
+
     </div>
+    <form method="POST" actions="/send">
     <div class="jumbotron text-center">
-            <button type="button" class="btn btn-primary">Sign in with CWL</button>
+      <input class="btn-btn-primary" type="submit" value="sign in">
     </div>
+  </form>
 
 
 
