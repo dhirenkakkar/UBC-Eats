@@ -12,9 +12,7 @@ def parseDataCSV():
         reader = csv.reader(csvfile, delimiter=',')
         for row in reader:
             for x in range(0, 6):
-                if (x == 4):
-                    row[x] = int(row[x])
-                elif (x == 3 or x == 2):
+                if (x == 3 or x == 2 or x == 4):
                     row[x] = float(row[x])
                 elif (x == 0):
                     asList = row[x].split('-')
