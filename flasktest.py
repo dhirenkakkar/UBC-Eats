@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request
+from flask import Flask, render_template,request,redirect
 import stats
 import parser
 
@@ -23,6 +23,11 @@ def about():
 def send():
      if request.method == 'POST':
          stats.loadData()
+         return redirect('/dashboard')
+
+@app.route('/dashboard')
+def dash():
+    return render_template('Dashboard.html')
 
 
 
