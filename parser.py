@@ -7,8 +7,10 @@ import config
 from datetime import date
 from bs4 import BeautifulSoup
 import pickle
-from webdriver_manager.chrome import ChromeDriverManager
+from selenium import webdriver
 
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 #Asad Aizaz; Jan 26 2019
 
 # Returns a Array[Column][Row] with all the information
@@ -44,7 +46,14 @@ def formatDate(date):
 def authenticateLogin():
     url = "https://secure.housing.ubc.ca/cas/sgw/cwl_auth.home"
     newUrl = ""
-    browser = webdriver.Chrome(ChromeDriverManager().install())
+    chromeOP = Options()
+    chromeOP.add_argument("--disable-infobars")
+
+    #browser = webdriver.Remote(command_executor='http://127.0.0.1:5000/', desired_capabilities=DesiredCapabilities.CHROME)
+    browser = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=chromeOP)
+    browser.set_window_size(400, 600)
+    browser.set_window_position(0, 0)
+
     browser.get(url)
     while (newUrl != "https://secure.housing.ubc.ca/cas/sgw/cwl_auth.home"):
         newUrl = browser.current_url
@@ -104,3 +113,4 @@ def start():
 def main():
     parseLocationCSV()
     authenticateLogin()
+#main()
