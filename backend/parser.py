@@ -45,7 +45,7 @@ def authenticateLogin():
     browser = webdriver.Chrome()
     browser.get(url)
     while (newUrl != "https://secure.housing.ubc.ca/cas/sgw/cwl_auth.home"):
-        newUrl = browser.current_url;
+        newUrl = browser.current_url
     pickle.dump(browser.get_cookies(), open("cookies.pkl", "wb"))
     browser.close()
     start()
