@@ -98,7 +98,3 @@ def start():
 def main():
     authenticateLogin()
 
-
-
-main()
-

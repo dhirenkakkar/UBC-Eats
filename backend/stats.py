@@ -17,17 +17,15 @@ def getRows(startDate, endDate):
     endDateMod = list(map(lambda x: int(x), endDateSplit))
     startDateForm = date(startDateMod[2], startDateMod[1], startDateMod[0])
     endDateForm = date(endDateMod[2], endDateMod[1], endDateMod[0]) 
-    startRow = 0
-    endRow = 0
     for x in range(len(config.data[0])):
         if (startDateForm < config.data[0][x]):
-            startRow = x - 1
+            startRow = x
             break
     else:
         startRow = 0
     for x in range(len(config.data[0])):
         if (endDateForm < config.data[0][x]):
-            endRow = x - 1
+            endRow = x
             break
     else:
         endRow = len(config.data[0])-1
@@ -49,24 +47,20 @@ def getNumDays(startDate, endDate):
 # at the end). Produces average spending per day in that range
 def avg(startDate, endDate):
     rows = getRows(startDate, endDate)
-    numDays = getNumDays(startDate, endDate)
     selectedRange = config.data[4][rows[0]:rows[1]+1]
     return np.mean(selectedRange)
 
 def stDev(startDate, endDate):
     rows = getRows(startDate, endDate)
-    numDays = getNumDays(startDate, endDate)
     selectedRange = config.data[4][rows[0]:rows[1]+1]
     return np.std(selectedRange)
 
 def var(startDate, endDate):
     rows = getRows(startDate, endDate)
-    numDays = getNumDays(startDate, endDate)
     selectedRange = config.data[4][rows[0]:rows[1]+1]
     return np.var(selectedRange)
 
+
+
 loadData()
-print(avg("02-01-2019", "08-01-2019"))
-print(stDev("02-01-2019", "08-01-2019"))
-print(var("02-01-2019", "08-01-2019"))
 
