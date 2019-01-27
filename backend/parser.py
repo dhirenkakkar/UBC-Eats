@@ -72,35 +72,6 @@ def main():
     authenticateLogin()
 
 
-#usernameInput = browser.find_element_by_name('j_username')
-#usernameInput.send_keys(username)
-#passwordIput = browser.find_element_by_name('j_password')
-#passwordIput.send_keys(password)
-
-#browser.find_element_by_xpath("//input[@type= 'submit' and @value='Continue']").click()
-
-
-
-
-#time.sleep(2);
-#browser.find_element_by_class_name("View Purchases").click()
-#time.sleep(1);
-
-#while("p_plan_id" not in newUrl):
- #   newUrl = browser.current_url;
-
-
-#numOptions = dropDown.options().size()
-
-#Might not need as selenium will wait till data loads???
-#time.sleep(5)
-
 
 main()
-print("end")
-
-
-
-# aaizaz
-# 26Asad99!
 
