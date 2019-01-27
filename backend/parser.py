@@ -7,6 +7,7 @@ import config
 from datetime import date
 from bs4 import BeautifulSoup
 import pickle
+from webdriver_manager.chrome import ChromeDriverManager
 
 #Asad Aizaz; Jan 26 2019
 
@@ -43,7 +44,7 @@ def formatDate(date):
 def authenticateLogin():
     url = "https://secure.housing.ubc.ca/cas/sgw/cwl_auth.home"
     newUrl = ""
-    browser = webdriver.Chrome()
+    browser = webdriver.Chrome(ChromeDriverManager().install())
     browser.get(url)
     while (newUrl != "https://secure.housing.ubc.ca/cas/sgw/cwl_auth.home"):
         newUrl = browser.current_url
@@ -103,4 +104,6 @@ def start():
 def main():
     parseLocationCSV()
     authenticateLogin()
+
+main()
 

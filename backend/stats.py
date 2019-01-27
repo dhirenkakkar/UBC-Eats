@@ -101,4 +101,6 @@ def pieChart(startDate, endDate):
         sum += ratios[key]
     
     print(sum)
-    
+    print(total)
+
+print(pieChart("01-01-2001", "01-01-2100"))
