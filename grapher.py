@@ -42,8 +42,8 @@ def pieChart(startDate, endDate):
            fontsize=8)
     plt.savefig('./Templates/piechart.png', bbox_inches='tight')
 
-def timeSeries():
-    
+# def timeSeries():
+
 
 pieChart("01-01-2001", "01-01-2100")
 
