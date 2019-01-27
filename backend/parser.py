@@ -8,6 +8,7 @@ from datetime import date
 from bs4 import BeautifulSoup
 import pickle
 
+#Asad Aizaz; Jan 26 2019
 
 # Returns a Array[Column][Row] with all the information
 # from the data.csv file. Fixed 6 column, does not handle
