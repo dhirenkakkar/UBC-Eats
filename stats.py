@@ -48,19 +48,19 @@ def getNumDays(startDate, endDate):
 # Assumes populated variables, startDate and endDate
 # produces a list of elements (i.e. startDate isn't
 # at the end). Produces average spending per day in that range
-def avg(startDate, endDate):
+def avg(startDate="01-01-2000", endDate="01-01-2100"):
     loadData()
     rows = getRows(startDate, endDate)
     selectedRange = config.data[4][rows[0]:rows[1]+1]
     return np.mean(selectedRange)
 
-def stDev(startDate, endDate):
+def stDev(startDate="01-01-2000", endDate="01-01-2100"):
     loadData()
     rows = getRows(startDate, endDate)
     selectedRange = config.data[4][rows[0]:rows[1]+1]
     return np.std(selectedRange)
 
-def var(startDate, endDate):
+def var(startDate="01-01-2000", endDate="01-01-2100"):
     loadData()
     rows = getRows(startDate, endDate)
     selectedRange = config.data[4][rows[0]:rows[1]+1]
@@ -71,12 +71,15 @@ def dateRange():
     loadData()
     return(config.data[0][0], config.data[0][len(config.data[0])-1])
 
-def pieChart(startDate, endDate):
+def total(startDate="01-01-2000", endDate="01-01-2100"):
     loadData()
     rows = getRows(startDate, endDate)
     selectedRange = config.data[4][rows[0]:rows[1]+1]
     total = np.sum(selectedRange)
-    print(total)
+    return total
+
+def pieChart(startDate, endDate):
+    total = total(startDate, endDate)
     ratios = {}
     regex = re.compile(r'(\D)+')
     for x in range(rows[0], rows[1]):
@@ -87,7 +90,7 @@ def pieChart(startDate, endDate):
         elif (name == 'TrekTims'):
             name = 'TimHortons'
         ratios[name] = 0
-    
+
     print(ratios)
     for x in range(rows[0], rows[1]):
         nameGrouped = regex.search(config.data[1][x])
@@ -100,8 +103,6 @@ def pieChart(startDate, endDate):
 
     return ratios
 
-    
-
-pieChart("01-01-2001", "01-01-2100")
 
 
+# pieChart("01-01-2001", "01-01-2100")

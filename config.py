@@ -1,3 +1,3 @@
 data = []
 locations = {}
-loaded = True
+loaded = False

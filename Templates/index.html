@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>FruitCake</title>
 
     <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -27,14 +27,14 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="#">
-                        Visualizations
+                      Plots
                     </a>
                 </li>
                 <li>
                     <a href="{{url_for('heatmap')}}">HeatMap</a>
                 </li>
                 <li>
-                    <a href="#">PieChart</a>
+                    <a href="{{url_for('piechart')}}">PieChart</a>
                 </li>
                 <!-- <li>
                     <a href="#">Overview</a>
@@ -59,6 +59,12 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <h1><center> Your average spending statistics </center></h1>
+
+                <p> Total spent {{ stats_total() }} </p>
+                <p> Average spent {{ stats_avg() }} </p>
+                <p> Total spent {{ stats_stDev() }} </p>
+                <p> Total spent {{ stats_var() }} </p>
+
 
 
                 <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
