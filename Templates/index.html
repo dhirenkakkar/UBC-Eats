@@ -60,10 +60,10 @@
             <div class="container-fluid">
                 <h1><center> Your average spending statistics </center></h1>
 
-                <p> Total spent {{ stats_total() }} </p>
-                <p> Average spent {{ stats_avg() }} </p>
-                <p> Total spent {{ stats_stDev() }} </p>
-                <p> Total spent {{ stats_var() }} </p>
+                <p> Total spent: $ {{ stats_total() }} </p>
+                <p> Average spent ($/transaction): {{ stats_avg() }} </p>
+                <p> Standard deviation ($): {{ stats_stDev() }} </p>
+                <p> Variance ($^2): {{ stats_var() }} </p>
 
 
 

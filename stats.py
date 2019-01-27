@@ -79,7 +79,8 @@ def total(startDate="01-01-2000", endDate="01-01-2100"):
     return total
 
 def pieChart(startDate, endDate):
-    total = total(startDate, endDate)
+    loadData()
+    rows = getRows(startDate, endDate)
     ratios = {}
     regex = re.compile(r'(\D)+')
     for x in range(rows[0], rows[1]):
