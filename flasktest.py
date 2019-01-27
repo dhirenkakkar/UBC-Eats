@@ -29,7 +29,13 @@ def send():
 
 @app.route('/dashboard')
 def dash():
+    return render_template('index.html')
+@app.route('/heatmap')
+def heatmap():
     return render_template('heatmap.html')
+
+
+
 
 
 
