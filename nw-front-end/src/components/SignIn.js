@@ -51,11 +51,9 @@ function SignIn(props) {
   return (
     <main className={classes.main}>
       <CssBaseline />
-      <Paper className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
+
+
+        <Typography component="h1" variant="h2">
           Sign in
         </Typography>
         <form className={classes.form}>
@@ -78,10 +76,10 @@ function SignIn(props) {
             color="primary"
             className={classes.submit}
           >
-            Sign in
+            Sign in with CWL
           </Button>
         </form>
-      </Paper>
+
     </main>
   );
 }

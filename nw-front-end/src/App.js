@@ -1,16 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import LandingPage from './components/SignIn';
+import {Header,Footer,CenterText} from './Layouts';
+
 
 
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <LandingPage/>
-     </div>
+      <Fragment>
+      <Header />
+      
+      <CenterText />
+
+
+
+     </Fragment>
 
     );
   }
