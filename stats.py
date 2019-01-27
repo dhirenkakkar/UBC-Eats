@@ -10,7 +10,6 @@ def loadData():
         parser.main()
         config.loaded = True
     parser.parseDataCSV()
-    print("ended loaddata")
 
 # Returns a tuple that has (startRow, endRow) from data
 # for specified dates
