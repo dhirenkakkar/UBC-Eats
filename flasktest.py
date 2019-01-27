@@ -1,6 +1,7 @@
 from flask import Flask, render_template,request,redirect
 import stats
 import parser
+import grapher
 
 
 
@@ -23,11 +24,12 @@ def about():
 def send():
      if request.method == 'POST':
          stats.loadData()
+         grapher.heatMap()
          return redirect('/dashboard')
 
 @app.route('/dashboard')
 def dash():
-    return render_template('Dashboard.html')
+    return render_template('heatmap.html')
 
 
 

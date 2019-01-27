@@ -12,12 +12,6 @@ def heatMap():
         temp = [config.data[2][x], config.data[3][x]]
         newData.append(temp)
     HeatMap(newData).add_to(m)
-    f = open("heatmap.html", "w+")
+    f = open("./Templates/heatmap.html", "w+")
     f.write(m._repr_html_())
     f.close
-
-
-stats.loadData()
-heatMap()
-
-
