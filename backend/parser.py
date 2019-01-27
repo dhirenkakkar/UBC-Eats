@@ -8,6 +8,7 @@ from datetime import date
 from bs4 import BeautifulSoup
 import pickle
 
+
 # Returns a Array[Column][Row] with all the information
 # from the data.csv file. Fixed 6 column, does not handle
 # errors
@@ -49,6 +50,7 @@ def authenticateLogin():
     browser.close()
     start()
 def parseTransactions(html):
+    hack  = 1
     soup = BeautifulSoup(html, "html.parser")
     fieldnames = ['date', 'loc', 'lat', 'long', 'amt', 'card']
     date = ""
@@ -70,12 +72,14 @@ def parseTransactions(html):
                     if d.text[1] == '-':
                         print(d.text[2:])
                         amt = d.text[2:]
-                    else:
-                        amt = d.text[1:]
+
                 if d.name == 'div' and d.get("class", '') == ['item-comments']:
                     print(d.text)
                     loc = d.text.split("Location: ", 1)[1]
-            c.writerow({'date': date, 'amt': amt, 'loc': loc, 'lat': 0,'long' : 0, 'card': "UBC Card"})
+            if hack != 1:
+              if config.locations.get(loc, (0,0)) is not (0,0):
+                c.writerow({'date': date, 'amt': amt, 'loc': loc, 'lat': config.locations.get(loc)[0],'long' : config.locations.get(loc)[1], 'card': "UBC Card"})
+            hack =0
 def start():
     chromeOP = Options()
     chromeOP.add_argument("--headless")
@@ -96,9 +100,9 @@ def start():
     parseTransactions(html)
 
 def main():
+    parseLocationCSV()
     authenticateLogin()
 
-
-
-main()
+#main()
+# main()
 
