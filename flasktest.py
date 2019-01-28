@@ -3,6 +3,7 @@ from flask import Flask, render_template,request,redirect
 import stats
 import parser
 import grapher
+import config
 
 
 
@@ -24,8 +25,10 @@ def about():
 @app.route('/', methods=['GET','POST'])
 def send():
      if request.method == 'POST':
+         config.loaded = False
          stats.loadData()
          grapher.heatMap()
+         grapher.pieChart("01-01-2000","01-01-2100")
          return redirect('/dashboard')
 
 @app.route('/dashboard')
@@ -38,8 +41,9 @@ def heatmap():
 
 @app.route('/piechart')
 def piechart():
-    grapher.pieChart("01-01-2000", "01-01-2100")
-    return render_template('piechart.html')
+         # grapher.pieChart("01-01-2000", "01-01-2100")
+         return render_template('piechart.html')
+
 
 app.jinja_env.globals.update(stats_total=stats.total)
 app.jinja_env.globals.update(stats_avg=stats.avg)

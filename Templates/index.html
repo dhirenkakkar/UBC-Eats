@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href= "{{ url_for('static',filename='styles/simple-sidebar.css') }}" rel="stylesheet">
@@ -58,16 +59,22 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                <h1><center> Your average spending statistics </center></h1>
+                <h1><center><u> Your average spending statistics </u></center></h1>
+                <br>
+            <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+                  <br>
 
-                <p> Total spent: $ {{ stats_total() }} </p>
-                <p> Average spent ($/transaction): {{ stats_avg() }} </p>
-                <p> Standard deviation ($): {{ stats_stDev() }} </p>
-                <p> Variance ($^2): {{ stats_var() }} </p>
+                <b><font size="5"> Total spent:</font></b><font size="25"> $ {{ stats_total() }} </font>
+                <br> <br> <br>
+                <b><font size="5"> Average spent ($/transaction):</font></b><font size="25"> $ {{ stats_avg() }}  </font>
+                <br> <br> <br>
+                <b><font size="5"> Standard deviation ($):</font></b><font size="25"> $ {{ stats_stDev() }} </font>
+                <br> <br> <br>
+                <b><font size="5"> Variance ($^2):</font></b><font size="25"> $ {{ stats_var() }} </font>
+                <br> <br> <br>
 
 
 
-                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
             </div>
         </div>
 
