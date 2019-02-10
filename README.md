@@ -10,3 +10,4 @@ A web application that visualizes UBC meal card transaction in the form of plots
 
 
 [Heatmap](https://drive.google.com/file/d/1kStBi4v3lSGTB_y3aRlrsE_rfTQ6a0fT/view?usp=sharing)
+[Pie char](https://drive.google.com/file/d/10OIJq_XcX6Hmrle8yOVz8YCE8vjiHg0b/view?usp=sharing)
