@@ -9,4 +9,4 @@ A web application that visualizes UBC meal card transaction in the form of plots
 - Integrated such that sign in button calls the python script (control flow passes onto the backend) and then outputs the returned HTML data onto the next window.
 
 
-[alt tag](https://drive.google.com/file/d/1kStBi4v3lSGTB_y3aRlrsE_rfTQ6a0fT/view?usp=sharing)
+[Heatmap](https://drive.google.com/file/d/1kStBi4v3lSGTB_y3aRlrsE_rfTQ6a0fT/view?usp=sharing)
